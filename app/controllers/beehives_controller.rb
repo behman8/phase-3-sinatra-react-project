@@ -14,4 +14,9 @@ class BeehivesController < ApplicationController
         end
     end
 
+    get "/beehives/:id" do
+        beehive = Beehive.find(params[:id])
+        beehive.to_json(:include => :owner, :except => :owner_id)
+    end
+
 end
