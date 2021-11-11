@@ -19,4 +19,16 @@ class BeehivesController < ApplicationController
         beehive.to_json(:include => :owner, :except => :owner_id)
     end
 
+    patch "/beehives/:id" do 
+        beehive = Beehive.find(params[:id])
+        if beehive.update(likes: params[:likes].to_i)
+            beehive.to_json(:include => :owner, :except => :owner_id)
+        end
+    end
+
+    delete "/beehives/:id" do
+        beehive = Beehive.find(params[:id])
+        beehive.delete
+    end
+
 end
