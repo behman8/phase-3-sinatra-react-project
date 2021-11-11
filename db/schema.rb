@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_30_204600) do
+ActiveRecord::Schema.define(version: 2021_11_11_001428) do
 
   create_table "beehives", force: :cascade do |t|
     t.string "queen_name"
     t.string "type_of_bees"
     t.integer "number_of_boxes"
     t.integer "owner_id"
+    t.integer "likes", default: 0
   end
 
   create_table "owners", force: :cascade do |t|
